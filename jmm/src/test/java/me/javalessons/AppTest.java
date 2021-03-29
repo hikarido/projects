@@ -172,4 +172,51 @@ public class AppTest {
         thread1.join();
         thread2.join();
     }
+
+    @Test
+    public void volatileCountIsNotEnough() throws InterruptedException {
+        final VolatileCounter volatileCounter = new VolatileCounter();
+        final Thread firstThread = new Thread(volatileCounter, "firstThread");
+        final Thread secondThread = new Thread(volatileCounter, "secondThread");
+        firstThread.start();
+        secondThread.start();
+        firstThread.join();
+        secondThread.join();
+    }
+
+    @Test
+    public void threadLocalMustBeDifferentInDistinctThreads() throws InterruptedException {
+        final TaskWithThreadLocal taskWithThreadLocal = new TaskWithThreadLocal();
+        final Thread one = new Thread(taskWithThreadLocal, "One");
+        final Thread two = new Thread(taskWithThreadLocal, "two");
+        one.start();
+        two.start();
+        one.join();
+        two.join();
+    }
+
+    @Test
+    public void threadLocalInThreadPool() throws InterruptedException {
+        final TaskWithThreadLocal task1 = new TaskWithThreadLocal();
+        final TaskWithThreadLocal task2 = new TaskWithThreadLocal();
+        final TaskWithThreadLocal tast3 = new TaskWithThreadLocal();
+        final TaskWithThreadLocal task4 = new TaskWithThreadLocal();
+        final Thread one = new Thread("One");
+        final Thread two = new Thread( "two");
+
+        one.start();
+        two.start();
+        one.join();
+        two.join();
+    }
+
+    @Test
+    public void makeDeadLockForMeBaby() throws InterruptedException {
+        new DeadlockMaker().makeDeadLock();
+    }
+
+    @Test
+    public void deadlockOrderResolution() throws InterruptedException {
+        new DeadlockPreventionByReordering().makeDeadLock();
+    }
 }
