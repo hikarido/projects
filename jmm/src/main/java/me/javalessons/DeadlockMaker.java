@@ -36,20 +36,25 @@ public class DeadlockMaker {
             Thread.sleep(100);
             System.out.println("Wait");
 
-            ThreadMXBean tmx = ManagementFactory.getThreadMXBean();
-            long[] ids = tmx.findDeadlockedThreads();
-            if (ids != null) {
-                ThreadInfo[] infos = tmx.getThreadInfo(ids, true, true);
-                System.out.println("The following threads are deadlocked:");
-                for (ThreadInfo ti : infos) {
-                    System.out.println(ti);
-                }
-            }
-
+            System.out.println(getInfoAboutLocks());
             if(!threadOne.isAlive() & !threadTwo.isAlive()){
                 break;
             }
         }
+    }
+
+    private String getInfoAboutLocks(){
+        ThreadMXBean tmx = ManagementFactory.getThreadMXBean();
+        long[] ids = tmx.findDeadlockedThreads();
+        if (ids != null) {
+            ThreadInfo[] infos = tmx.getThreadInfo(ids, true, true);
+            String s = "The following threads are deadlocked:";
+            for (ThreadInfo ti : infos) {
+                s += ti + "\n";
+            }
+            return s;
+        }
+        return "";
     }
 
     private static class TaskWhichDoLock implements Runnable{
