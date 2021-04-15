@@ -1,7 +1,7 @@
 package me.javalessons;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for simple App.
@@ -89,7 +89,7 @@ public class AppTest {
         b.start();
         a.join();
         b.join();
-        Assert.assertFalse("Value may be equal, but there is uncertainty",
+        Assertions.assertFalse(
                 taskWithFields.getValue() == expected);
     }
 
@@ -105,8 +105,8 @@ public class AppTest {
         b.start();
         a.join();
         b.join();
-        Assert.assertEquals(expected, taskWithFields.getValue());
-        Assert.assertEquals(expected1, taskWithFields1.getValue());
+        Assertions.assertEquals(expected, taskWithFields.getValue());
+        Assertions.assertEquals(expected1, taskWithFields1.getValue());
     }
 
     @Test
