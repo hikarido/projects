@@ -16,8 +16,8 @@ package my.javalesson.jbej.item25wontcompiles;
  * $ "C:\Users\ananevkv\.jdks\adopt-openjdk-11.0.11\bin\java" my.javalesson.jbej.item25wontcompiles.Main
  * pancake
  */
-public class Main {
-    public static void main(String[] args) {
-        System.out.println(Utensil.NAME + Desert.NAME);
-    }
-}
+//public class Main {
+//    public static void main(String[] args) {
+//        System.out.println(Utensil.NAME + Desert.NAME);
+//    }
+//}
