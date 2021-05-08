@@ -14,9 +14,10 @@
   <name>javacore</name>
   <dependencies>
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>${org.junit.version}</version>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${org.testng.version}</version>
+      <!--      <version>${org.junit.version}</version>-->
       <scope>test</scope>
     </dependency>
   </dependencies>

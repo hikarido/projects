@@ -20,6 +20,7 @@
     <org.junit.version>5.7.1</org.junit.version>
     <org.assertj.version>3.16.1</org.assertj.version>
     <org.mockito.version>3.3.3</org.mockito.version>
+    <org.testng.version>6.14.3</org.testng.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -58,6 +59,12 @@
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
       <version>${org.mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${org.testng.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
