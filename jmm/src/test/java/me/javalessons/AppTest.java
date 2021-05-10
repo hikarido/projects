@@ -124,9 +124,10 @@ public class AppTest {
         System.out.println(taskWithVolatileCount.getValue());
     }
 
+    // long test. Its execution takes about 15 minute
     @Test
     public void threadsWithSyncronisation() throws InterruptedException {
-        final int limit = 1_000_000;
+        final int limit = 1_000;
         final TaksWithSyncronizedCount task = new TaksWithSyncronizedCount(limit);
         final Thread threadA = new Thread(task, "a");
         final Thread threadB = new Thread(task, "b");
@@ -173,16 +174,17 @@ public class AppTest {
         thread2.join();
     }
 
-    @Test
-    public void volatileCountIsNotEnough() throws InterruptedException {
-        final VolatileCounter volatileCounter = new VolatileCounter();
-        final Thread firstThread = new Thread(volatileCounter, "firstThread");
-        final Thread secondThread = new Thread(volatileCounter, "secondThread");
-        firstThread.start();
-        secondThread.start();
-        firstThread.join();
-        secondThread.join();
-    }
+//    newe ends - dead lock
+//    @Test
+//    public void volatileCountIsNotEnough() throws InterruptedException {
+//        final VolatileCounter volatileCounter = new VolatileCounter();
+//        final Thread firstThread = new Thread(volatileCounter, "firstThread");
+//        final Thread secondThread = new Thread(volatileCounter, "secondThread");
+//        firstThread.start();
+//        secondThread.start();
+//        firstThread.join();
+//        secondThread.join();
+//    }
 
     @Test
     public void threadLocalMustBeDifferentInDistinctThreads() throws InterruptedException {
@@ -210,10 +212,11 @@ public class AppTest {
         two.join();
     }
 
-    @Test
-    public void makeDeadLockForMeBaby() throws InterruptedException {
-        new DeadlockMaker().makeDeadLock();
-    }
+//    makes dead lock
+//    @Test
+//    public void makeDeadLockForMeBaby() throws InterruptedException {
+//        new DeadlockMaker().makeDeadLock();
+//    }
 
     @Test
     public void deadlockOrderResolution() throws InterruptedException {

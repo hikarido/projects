@@ -16,8 +16,11 @@
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>${org.testng.version}</version>
-      <!--      <version>${org.junit.version}</version>-->
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
