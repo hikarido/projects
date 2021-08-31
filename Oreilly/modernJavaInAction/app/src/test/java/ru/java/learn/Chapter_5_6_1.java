@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class Chapter_6_1 {
+public class Chapter_5_6_1 {
 
     private final Trader raoul = new Trader("Raoul", "Cambrige");
     private final Trader mario = new Trader("Mario", "Milan");
